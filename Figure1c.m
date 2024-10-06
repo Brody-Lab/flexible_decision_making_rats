@@ -7,15 +7,13 @@ close all
 %script that plots psychometrics across all animals
 
 
-data_base_dir = fileread('data_base_dir.conf');
+load('data/numsessions_all_rats.mat');
 
-load([data_base_dir '/numsessions_best2.mat']);
-
-rat_list=rats(find(numhits>=120000))
+rat_list=rats(find(numhits>=120000));
 
 
 
-load([data_base_dir '/psychometrics_all_best.mat']);
+load('data/psychometrics_all_rats.mat');
 
 rats_psychometrics=rats;
 
