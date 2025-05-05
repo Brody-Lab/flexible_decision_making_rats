@@ -18,6 +18,7 @@ for iii=1:nrats
     
     %%% rat name
     rats{iii}=d(iii).name(1:4);
+
     
     %%% load behavioral data
     load(['data/Sessions_trials/' d(iii).name]);
@@ -43,13 +44,20 @@ for iii=1:nrats
     numhits(iii)=length(hits);
     
     
-    
+    %%% early rats (trained with a slightly different training procedure)
+    rat_number=str2double(rats{iii}(2:end));
+    if(rat_number<15)
+        early_rat(iii)=1;
+    else
+        early_rat(iii)=0;
+    end
+
 end
 
 
 %%% save data
 save('data/numsessions_all_rats.mat','rats',...
-    'num','numgood','numhits');
+    'num','numgood','numhits','early_rat');
 
 
 

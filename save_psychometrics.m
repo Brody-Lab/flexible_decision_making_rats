@@ -11,9 +11,9 @@ d=dir('data/Sessions_trials/*sessions.mat');
 
 for qqq=1:length(d)
     
+
     [qqq length(d)]
 
-    
     %%% load behavioral data
     load(['data/Sessions_trials/' d(qqq).name]);
     
@@ -135,18 +135,6 @@ for qqq=1:length(d)
     
     
 
-    % %training stage
-    % o=[s(:).sta2];
-    % stag=o(ind_good);
-    % 
-    % 
-    % 
-    % 
-    % if(isempty(stag))
-    %     continue
-    % end
-
-
 
     % choose good sessions
     len=length(ind_good);
@@ -160,7 +148,6 @@ for qqq=1:length(d)
     %only use data from good sessions
     be=be(good);
     pe=pe(good);
-    % stag=stag(good);
     cdir=cdir(:,:,good);
     cdir_num=cdir_num(:,:,good);
     cfreq=cfreq(:,:,good);
@@ -180,10 +167,6 @@ for qqq=1:length(d)
     cfreqs{qqq}=cfreq;
     cdir_nums{qqq}=cdir_num;
     cfreq_nums{qqq}=cfreq_num;
-    
-    
-    
-    
     
     
     
