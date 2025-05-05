@@ -2,11 +2,8 @@ function [] = plot_neur_new(rat_name,type)
 
 %%% plot pulse responses
 
-
-
 rat=rat_name(2:end);
 rat=str2double(rat);
-
 
 
 res=2;
@@ -76,8 +73,6 @@ wfall=(wfdall+wffall)/2;
 [cf3,sf,lf]=pca(wfall);
 
 
-
-
 wddall_orig=wddall;
 wfdall_orig=wfdall;
 wdfall_orig=wdfall;
@@ -106,9 +101,6 @@ y=f1-f2;
 y=y/max(abs(y));
 pf=polyfit(x,y,1);
 f_shap=pf(1);
-
-
-
 
 
 
@@ -146,7 +138,6 @@ if(strcmp(type,'location'))
     media=difa;
     standa=sqrt((curve1_se+curve2_se)/2);
     standa=standa/maxval;
-    % standa=standa/2;
     vec1=media-standa;
     vec2=media+standa;
     fill([vecx vecx(end:-1:1) vecx(1)],[vec1 vec2(end:-1:1) vec1(1)],...
@@ -195,12 +186,7 @@ elseif(strcmp(type,'frequency'))
     difa=difa/maxval;
 
     plot(vecx,difa,'-','MarkerSize',10,'LineWidth',2,'Color',[57 83 164]/255)
-
-
-
     plot(vecx,pf(1)*vecx+pf(2),'-','LineWidth',3,'Color',[57 83 164]/255)
-
-
 
 
 
@@ -214,7 +200,6 @@ elseif(strcmp(type,'frequency'))
     media=difa;
     standa=sqrt((curve1_se+curve2_se)/2);
     standa=standa/maxval;
-    % standa=standa/2;
     vec1=media-standa;
     vec2=media+standa;
     fill([vecx vecx(end:-1:1) vecx(1)],[vec1 vec2(end:-1:1) vec1(1)],...
@@ -224,11 +209,7 @@ elseif(strcmp(type,'frequency'))
 
 
     hold on
-
-
     plot(vecx(1:8:end),difa(1:8:end),'^','MarkerSize',10,'LineWidth',2,'Color',[57 83 164]/255,'MarkerFaceColor',[57 83 164]/255)
-
-
     plot(xlim,[0 0],'-','Color',[0 0 0]/255,'LineWidth',2)
 
 
